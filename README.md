@@ -22,9 +22,7 @@ Preflight, wrong origin.
 - app-with-workaround: correctly does not have CORS headers
 
 ```
-OPTIONS http://localhost:5000/v1/foo
-Access-Control-Request-Method: PUT
-Origin: http://example.com
+curl -i -H Origin\:\ http\://example.com -H Access-Control-Request-Method\:\ PUT -XOPTIONS http\://localhost\:5000/v1/foo
 ```
 
 Preflight, correct origin
@@ -32,7 +30,5 @@ Preflight, correct origin
 - app-with-workaround: correctly has CORS headers
 
 ```
-OPTIONS http://localhost:5000/v1/foo
-Access-Control-Request-Method: PUT
-Origin: http://localhost:5000
+curl -i -H Origin\:\ http\://localhost\:5000 -H Access-Control-Request-Method\:\ PUT -XOPTIONS http\://localhost\:5000/v1/foo
 ```
